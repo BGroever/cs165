@@ -1,0 +1,16 @@
+DISABLE HYPYERTHREADING
+
+1) become a superuser with su
+2) Do: echo 0 > /sys/devices/system/cpu/cpu3/online
+2) Check with: grep -H . /sys/devices/system/cpu/cpu*/topology/thread_siblings_list
+
+
+DISABLE DVFS
+
+1) sudo cpupower frequency-set -g performance
+2) Check with watch grep \"cpu MHz\" /proc/cpuinfo
+
+DISABLE TURBO BOOST
+
+1) Become a super user with su
+2) Set /sys/devices/system/cpu/intel_pstate/no_turbo to 1
